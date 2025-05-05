@@ -11,10 +11,10 @@ export type Vec4 = [number, number, number, number];
 export type Texture = { data: Vec4[], width: number };
 
 /** A composite type to constraint a socket to commonly used types. */
-export type NodeSocketType = number | number[] | Vec2 | Vec3 | Vec4 | Texture | AudioNode;
+export type AmethystNodeSocketType = number | number[] | Vec2 | Vec3 | Vec4 | Texture | AudioNode;
 
 /** A socket of a node, either input or output, which can connect to other sockets. */
-export interface NodeSocket<T extends NodeSocketType> {
+export interface AmethystNodeSocket<T extends AmethystNodeSocketType> {
   /** Value of the socket. */
   value: T;
 
@@ -45,10 +45,10 @@ export interface NodeSocket<T extends NodeSocketType> {
    */
 }
 
-export default interface Node {
+export default interface AmethystNode {
   /** The available input sockets */
-  inputs: NodeSocket<any>[];
+  inputs: AmethystNodeSocket<any>[];
 
   /** The available output sockets */
-  outputs: NodeSocket<any>[];
+  outputs: AmethystNodeSocket<any>[];
 }
