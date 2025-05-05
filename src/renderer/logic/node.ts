@@ -1,4 +1,10 @@
-export interface NodeSocket<T> {
+export type Vec2 = [number, number];
+export type Vec3 = [number, number, number];
+export type Vec4 = [number, number, number, number];
+export type Texture = { data: Vec4[], width: number };
+export type NodeSocketType = number | number[] | Vec2 | Vec3 | Vec4 | Texture | AudioNode;
+
+export interface NodeSocket<T extends NodeSocketType> {
   /** Value of the socket. */
   value: T;
   /** UUID of the socket. */
