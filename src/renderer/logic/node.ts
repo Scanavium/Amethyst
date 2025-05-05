@@ -45,16 +45,10 @@ export interface NodeSocket<T extends NodeSocketType> {
    */
 }
 
-export default class Node {
-
+export default interface Node {
   /** The available input sockets */
-  private inputs: NodeSocket<any>[];
+  inputs: NodeSocket<any>[];
 
   /** The available output sockets */
-  private outputs: NodeSocket<any>[];
-
-  public constructor(inputs?: NodeSocket<any>[], outputs?: NodeSocket<any>[]) {
-    this.inputs = inputs || [];
-    this.outputs = outputs || [];
-  }
+  outputs: NodeSocket<any>[];
 }
