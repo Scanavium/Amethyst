@@ -46,9 +46,27 @@ export interface AmethystNodeSocket<T extends AmethystNodeSocketType> {
 }
 
 export default interface AmethystNode {
-  /** The available input sockets */
+  /** The name of the node. */
+  title: string;
+
+  /** The description of the node. */
+  description: string;
+
+  /** The UUID of the node. */
+  id: string;
+
+  /** The type of this node. */
+  type: string;
+
+  /** The available input sockets. */
   inputs: AmethystNodeSocket<any>[];
 
-  /** The available output sockets */
+  /** The available output sockets. */
   outputs: AmethystNodeSocket<any>[];
+
+  /** The x-position of the node. */
+  x: number;
+
+  /** The y-position of teh node. */
+  y: number;
 }
