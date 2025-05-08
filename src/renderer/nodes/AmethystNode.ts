@@ -20,3 +20,7 @@ export interface AmethystNode<T extends {
   connections: [T, keyof T["outputs"]][];
   init: (this: AmethystNode<T>) => void;
 }
+
+export function defineAmethystNode<T extends AmethystNode<any>>(amethystNode: T): AmethystNode<T> {
+  return amethystNode;
+}
