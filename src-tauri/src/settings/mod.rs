@@ -238,6 +238,7 @@ pub struct MediaSource {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(tag = "type")]
 pub enum MediaSourceData {
     Local {
         path: String,
