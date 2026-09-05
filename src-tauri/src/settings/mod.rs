@@ -1,7 +1,10 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+mod default;
+
+#[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct Settings {
     pub appearance: Appearance,
     pub performance: Performance,
@@ -17,6 +20,7 @@ pub struct Settings {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct Appearance {
     animation_duration: usize,
     font_weight: String,
@@ -38,6 +42,7 @@ pub struct Appearance {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct CustomColors {
     pub enabled: bool,
     pub colors: CustomColorData,
@@ -45,6 +50,7 @@ pub struct CustomColors {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct CustomColorData {
     pub accent: String,
     pub primary: String,
@@ -54,6 +60,7 @@ pub struct CustomColorData {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct Background {
     show: bool,
     opacity: usize,
@@ -66,6 +73,7 @@ pub struct Background {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct Shader {
     #[serde(rename = "use")]
     enabled: bool,
@@ -74,6 +82,7 @@ pub struct Shader {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct Performance {
     use_vsync: bool,
     processing_concurrency: usize,
@@ -82,6 +91,7 @@ pub struct Performance {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct Behavior {
     auto_play_on_startup: bool,
     fetch_metadata_on_startup: bool,
@@ -89,6 +99,7 @@ pub struct Behavior {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct Metering {
     loudness_meter: LoudnessMeter,
     oscilloscope: Oscilloscope,
@@ -103,12 +114,14 @@ pub struct Metering {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct LoudnessMeter {
     show: bool,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct Oscilloscope {
     show: bool,
     smoothing: f32,
@@ -118,6 +131,7 @@ pub struct Oscilloscope {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct Vectorscope {
     show: bool,
     smoothing: f32,
@@ -128,6 +142,7 @@ pub struct Vectorscope {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct Spectrum {
     show: bool,
     #[serde(rename = "type")]
@@ -136,6 +151,7 @@ pub struct Spectrum {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct SpectrumLine {
     smoothing: f32,
     fft_size: usize,
@@ -148,6 +164,7 @@ pub struct SpectrumLine {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct SpectrumBars {
     smoothing: f32,
     fft_size: usize,
@@ -156,6 +173,7 @@ pub struct SpectrumBars {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct Spectrogram {
     smoothing: f32,
     fft_size: usize,
@@ -165,6 +183,7 @@ pub struct Spectrogram {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct DecibelMeter {
     minimum_db: f32,
     separate_pre_post: bool,
@@ -175,6 +194,7 @@ pub struct DecibelMeter {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct Audio {
     driver: String,
     buffer_size: usize,
@@ -185,6 +205,7 @@ pub struct Audio {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct Integrations {
     discord: Discord,
     last_fm: LastFm,
@@ -192,12 +213,14 @@ pub struct Integrations {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct Discord {
     pub enabled: bool,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct LastFm {
     enabled: bool,
     enable_scrobbling: bool,
@@ -232,12 +255,14 @@ pub enum MediaSourceData {
     },
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct Keybinds {}
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct Application {
     auto_start: bool,
     auto_updates_enabled: bool,
@@ -246,6 +271,7 @@ pub struct Application {
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(default)]
 pub struct Columns {
     cover: bool,
     artist: bool,
